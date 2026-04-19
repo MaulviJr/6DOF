@@ -1,30 +1,24 @@
-# Eid Mubarak Cube
+# 6DOF Viewer
 
-An interactive Three.js celebration scene built with React and Vite.
+An interactive React + Three.js app that displays six degrees of freedom (6DOF) behavior in a 3D scene.
 
-The project renders a 3D gift box that opens as you scroll. When the lid opens enough, a golden "Eid Mubarak" text rises out of the box. The styled version also includes simple fireworks particles for a festive effect.
+## What This App Shows
+
+The project visualizes object/camera movement across all six degrees of freedom:
+
+- Translation on X axis (left/right)
+- Translation on Y axis (up/down)
+- Translation on Z axis (forward/backward)
+- Rotation around X axis (roll)
+- Rotation around Y axis (pitch)
+- Rotation around Z axis (yaw)
 
 ## Tech Stack
 
 - React 19
 - Vite 7
 - Three.js
-- Tailwind CSS (available in project dependencies)
-
-## Features
-
-- Scroll-driven box opening animation
-- Hinged lid animation (top face rotates from a pivot)
-- Animated 3D text reveal
-- Orbit controls for camera movement (zoom disabled)
-- Responsive canvas resize handling
-- Scene cleanup on unmount to avoid memory leaks
-
-## Controls
-
-- Scroll down: opens the lid
-- Scroll up: closes the lid
-- Drag mouse: orbit around the scene
+- Tailwind CSS (available in dependencies)
 
 ## Getting Started
 
@@ -40,7 +34,7 @@ npm install
 npm run dev
 ```
 
-### 3. Build for production
+### 3. Build production bundle
 
 ```bash
 npm run build
@@ -54,42 +48,33 @@ npm run preview
 
 ## Available Scripts
 
-- npm run dev: starts local Vite dev server
-- npm run build: creates production bundle in dist
-- npm run lint: runs ESLint
-- npm run preview: serves the built app locally
-- npm run deploy: publishes dist to GitHub Pages
+- `npm run dev` starts the local Vite development server
+- `npm run build` builds the app into `dist`
+- `npm run lint` runs ESLint
+- `npm run preview` previews the built app locally
+- `npm run deploy` publishes `dist` to GitHub Pages
 
-## Project Structure
+## GitHub Pages Deployment
 
-```text
-src/
-	App.jsx
-	components/
-		ThreeScene.jsx
-		ThreeSceneold.jsx
-```
+This project is configured for deployment to:
 
-## Scene Variants
+`https://MaulviJr.github.io/6DOF`
 
-The main app currently renders ThreeScene by default.
+### First-time setup
 
-- ThreeScene.jsx: stylized version with festive fireworks effect
-- ThreeSceneold.jsx: earlier version without fireworks logic
+1. Push this project to the `6DOF` GitHub repository.
+2. Ensure the default branch is `main` (or update your Pages source accordingly).
+3. In GitHub repository settings, set GitHub Pages source to `gh-pages` branch after first deploy.
 
-If you want to switch variants quickly, update the rendered component in src/App.jsx.
-
-## Deployment
-
-This project is configured for GitHub Pages using gh-pages.
+### Deploy command
 
 ```bash
 npm run deploy
 ```
 
-The deployment command runs a production build first and then publishes dist.
+This runs `predeploy` (`npm run build`) and then publishes the `dist` folder to the `gh-pages` branch using `gh-pages`.
 
 ## Notes
 
-- Font is loaded from the Three.js examples CDN at runtime.
-- A tall page section is intentionally used so scroll progress can drive the animation.
+- Vite `base` is set to `/6DOF/` for GitHub Pages compatibility.
+- `homepage` in `package.json` is set to `https://MaulviJr.github.io/6DOF`.
